@@ -1,0 +1,45 @@
+
+.strike {
+    text-decoration: line-through;
+}
+.todo {
+  display: flex;
+    justify-content: center;
+    padding: 0px 100px;
+    column-gap: 10px;
+    font-size: 20px;
+}
+.App{
+  padding-top: 100px;
+}
+.todo-box{
+  box-shadow: rgb(17 17 26 / 10%) 0px 4px 16px, rgb(17 17 26 / 10%) 0px 8px 24px, rgb(17 17 26 / 10%) 0px 16px 56px;
+  width: 45%;
+  padding: 1.25rem 1rem;
+  text-align: center;
+  margin: 0 auto;
+  border-radius: 23px;
+}
+.todo-btn{
+  margin-left: 30px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  background: #f85555;
+  border: 0;
+  color: #ffff
+}
+.todo-btn:hover {
+  color: black;
+      transition: 0.7s;
+}
+.todo-input{
+  border: 0;
+    border-radius: 10px;
+    background: #e1e1e2;
+    padding: 10px;
+    width: 200px;
+    margin-bottom: 20px;
+}
+.todo-input:focus-visible{
+  border-color: #f85555;
+}
