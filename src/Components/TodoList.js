@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 const ToDo = ({ todo, handleToggle, handleChange }) => {
     const [edit, setEdit] = useState(false)
