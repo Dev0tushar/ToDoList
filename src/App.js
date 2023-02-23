@@ -10,7 +10,7 @@ import './App.css'
 function App() {
 
   // const [toDoList, setToDoList] = useState(data);
-  
+
   const [toDoList, setToDoList] = useState(() => {
 
     const savedTodos = localStorage.getItem("todos");
@@ -35,6 +35,16 @@ function App() {
     setToDoList(mapped);
   }
 
+  const handleChange = (newValue, id) => {
+    // console.log(id+"")
+    let editVal = toDoList.map(task => {
+      return task.id === Number(id) ? { ...task, task: newValue } : { ...task };
+    });
+    console.log(newValue, "edit");
+    setToDoList(editVal);
+
+  }
+
   const handleFilter = () => {
     let filtered = toDoList.filter(task => {
       return !task.complete;
@@ -43,21 +53,26 @@ function App() {
   }
 
   const addTask = (userInput) => {
-    let copy = [...toDoList];
+    if (userInput) {
+      let copy = [...toDoList];
 
-    copy = [...copy, { id: toDoList.length , task: userInput, complete: false }];
-    console.log(copy, "todo list appjs")
-    setToDoList(copy);
+      copy = [...copy, { id: toDoList.length, task: userInput, complete: false }];
+      console.log(copy, "todo list appjs")
+      setToDoList(copy);
+    } else {
+      alert("please enter task")
+    }
   }
+
 
   return (
     <div className="App">
       <div className='todo-box'>
-      <h1>
-        To Do List
-      </h1>
-      <ToDoForm addTask={addTask} />
-      <ToDoList toDoList={toDoList} handleToggle={handleToggle} handleFilter={handleFilter} />
+        <h1>
+          To Do List
+        </h1>
+        <ToDoForm addTask={addTask} />
+        <ToDoList toDoList={toDoList} handleToggle={handleToggle} handleChange={handleChange} handleFilter={handleFilter} />
       </div>
     </div>
   );
